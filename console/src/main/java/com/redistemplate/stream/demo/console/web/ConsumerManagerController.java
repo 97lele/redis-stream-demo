@@ -1,7 +1,9 @@
 package com.redistemplate.stream.demo.console.web;
 
+import com.redistemplate.stream.demo.common.StreamCache;
 import com.redistemplate.stream.demo.common.StreamCacheInfo;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StreamOperations;
@@ -21,7 +23,10 @@ public class ConsumerManagerController {
 
     @PostMapping("/createConsumer")
     public void createConsuemer(@RequestBody StreamCacheInfo streamCacheInfo, BindingResult result) {
+        if(Strings.isBlank(streamCacheInfo.getConsumerName())){
 
+        }
+        StreamCache.createConsumerCache(streamCacheInfo);
 
     }
 
@@ -35,4 +40,6 @@ public class ConsumerManagerController {
     public StreamOperations getStreamOp() {
         return redisTemplate.opsForStream();
     }
+
+
 }

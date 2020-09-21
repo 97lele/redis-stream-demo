@@ -5,6 +5,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotEmpty;
+
 /**
  * @Author lulu
  * @Date 2020/9/20 22:25
@@ -13,8 +15,9 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 public class StreamCacheInfo {
-     @NonNull
+     @NotEmpty(message = "流名字不能为空")
      String streamName;
+     @NotEmpty(message = "消费组名字不能为空")
      String groupName;
      String consumerName;
 }
