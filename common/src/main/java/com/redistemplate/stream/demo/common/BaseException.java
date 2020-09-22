@@ -1,9 +1,12 @@
 package com.redistemplate.stream.demo.common;
 
+import lombok.Getter;
+
 /**
  * @author lele
  * 基础异常类
  */
+@Getter
 public class BaseException extends RuntimeException{
     private String msg;
     private Integer code;

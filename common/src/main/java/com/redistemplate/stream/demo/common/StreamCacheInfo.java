@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Objects;
 
 /**
  * @Author lulu
@@ -15,9 +16,21 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 @Accessors(chain = true)
 public class StreamCacheInfo {
-     @NotEmpty(message = "流名字不能为空")
-     String streamName;
-     @NotEmpty(message = "消费组名字不能为空")
-     String groupName;
-     String consumerName;
+    @NotEmpty(message = "流名字不能为空")
+    String streamName;
+    @NotEmpty(message = "消费组名字不能为空")
+    String groupName;
+    String consumerName;
+    boolean start;
+    String id;
+
+    public String getMark() {
+        if (this.start) {
+            return StreamMarkEnums.START.getValue();
+        }
+        if (Objects.nonNull(id)) {
+            return id;
+        }
+        return StreamMarkEnums.LAST.getValue();
+    }
 }
