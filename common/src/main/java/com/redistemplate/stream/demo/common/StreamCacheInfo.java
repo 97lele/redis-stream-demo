@@ -24,12 +24,12 @@ public class StreamCacheInfo {
     boolean start;
     String id;
 
-    public String getMark() {
-        if (this.start) {
-            return StreamMarkEnums.START.getValue();
-        }
+    public String mark() {
         if (Objects.nonNull(id)) {
             return id;
+        }
+        if (this.start) {
+            return StreamMarkEnums.START.getValue();
         }
         return StreamMarkEnums.LAST.getValue();
     }

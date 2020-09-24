@@ -6,8 +6,7 @@ cloud:
 
 spring:
   application:
-    name: redis-stream-demo-producer
-
+    name: redis-stream-demo-console
 
 server:
-  port: 8820
+  port: 8830

@@ -12,8 +12,7 @@ import lombok.Getter;
 public enum StreamMarkEnums {
     START(0, "0"),
     LAST(1, ">"),
-    MIN_ID(-1, "-"),
-    MAX_ID(2, "+");
+    CUSTOM(2,"");
     private Integer code;
     private String value;
 }
